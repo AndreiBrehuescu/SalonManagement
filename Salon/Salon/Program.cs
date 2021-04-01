@@ -45,8 +45,7 @@ namespace Salon
             //Console.WriteLine(getMd5Hash("admin"));
             //ServiceRepository.test();
             Application.EnableVisualStyles();
-            Application.Run(new LoginForm(appointmentService, servicesService, userService,
-                appointmentRepository, servicesRepository, userRepository));
+            Application.Run(new LoginForm(appointmentService, servicesService, userService));
         }
 
         private static string getMd5Hash(string input)

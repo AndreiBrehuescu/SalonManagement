@@ -20,21 +20,13 @@ namespace Salon.Presentation
         private IServicesService servicesService;
         private IUserService userService;
 
-        private IAppointmentRepository appointmentRepository;
-        private IServicesRepository servicesRepository;
-        private IUserRepository userRepository;
 
         private LoginForm loginForm;
-        public AdminForm(LoginForm loginForm, IAppointmentService appointmentService, IServicesService servicesService, IUserService userService,
-            IAppointmentRepository appointmentRepository, IServicesRepository servicesRepository, IUserRepository userRepository)
+        public AdminForm(LoginForm loginForm, IAppointmentService appointmentService, IServicesService servicesService, IUserService userService)
         {
             this.appointmentService = appointmentService;
             this.servicesService = servicesService;
             this.userService = userService;
-
-            this.appointmentRepository = appointmentRepository;
-            this.servicesRepository = servicesRepository;
-            this.userRepository = userRepository;
 
             this.loginForm = loginForm;
 

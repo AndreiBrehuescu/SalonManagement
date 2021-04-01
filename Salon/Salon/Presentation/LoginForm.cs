@@ -19,10 +19,6 @@ namespace Salon.Presentation
         private IServicesService servicesService;
         private IUserService userService;
 
-        private IAppointmentRepository appointmentRepository;
-        private IServicesRepository servicesRepository;
-        private IUserRepository userRepository;
-
         private AdminForm adminForm;
         private EmployeeForm employeeForm;
         public LoginForm()
@@ -30,16 +26,11 @@ namespace Salon.Presentation
             InitializeComponent( );
         } 
 
-        public LoginForm(IAppointmentService appointmentService, IServicesService servicesService, IUserService userService,
-            IAppointmentRepository appointmentRepository, IServicesRepository servicesRepository, IUserRepository userRepository)
+        public LoginForm(IAppointmentService appointmentService, IServicesService servicesService, IUserService userService)
         {
             this.appointmentService = appointmentService;
             this.servicesService = servicesService;
             this.userService = userService;
-
-            this.appointmentRepository = appointmentRepository;
-            this.servicesRepository = servicesRepository;
-            this.userRepository = userRepository;
 
             InitializeComponent();
         }
@@ -56,15 +47,13 @@ namespace Salon.Presentation
             {
                 if (loginUser.GetRole().Equals("Admin"))
                 {
-                    adminForm = new AdminForm(this, appointmentService, servicesService, userService,
-                 appointmentRepository, servicesRepository, userRepository);
+                    adminForm = new AdminForm(this, appointmentService, servicesService, userService);
                     adminForm.Show();
                     this.Hide();
                 }
                 else
                 {
-                    employeeForm = new EmployeeForm(this, appointmentService, servicesService, userService,
-                 appointmentRepository, servicesRepository, userRepository);
+                    employeeForm = new EmployeeForm(this, appointmentService, servicesService, userService);
                     employeeForm.Show();
                     this.Hide();
                 }
